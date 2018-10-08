@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "watch": true,
+      "jsx": "react",
+      "module": "commonjs",
+      "sourceMap": true,
+      "noImplicitAny": false,
+      "removeComments": false,
+      "listFiles": false,
+      "declaration": false,
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true
+    },
+    "compileOnSave": true,
+    "exclude": [
+      "node_modules"
+    ]
+  }
