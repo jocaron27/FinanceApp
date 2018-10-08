@@ -1,25 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-
-export const Home = (props) => {
-  const {email} = props
-
-  return (
-    <div>
-      <h3>Welcome, {email}</h3>
-    </div>
-  )
-}
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = require("react");
+const react_redux_1 = require("react-redux");
+exports.Home = (props) => {
+    const { email } = props;
+    return (React.createElement("div", null,
+        React.createElement("h3", null,
+            "Welcome, ",
+            email)));
+};
 const mapState = (state) => {
-  return {
-    email: state.user.email
-  }
-}
-
-export default connect(mapState)(Home)
-
-Home.propTypes = {
-  email: PropTypes.string
-}
+    return {
+        email: state.user.email
+    };
+};
+exports.default = react_redux_1.connect(mapState)(exports.Home);
+//# sourceMappingURL=home.js.map

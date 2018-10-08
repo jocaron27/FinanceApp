@@ -17,4 +17,4 @@
 
 -Logger
 
--TypeScript (see branch: 'typescript')
+-TypeScript
