@@ -1,60 +1,44 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {Router} from 'react-router'
-import {Route, Switch} from 'react-router-dom'
-import PropTypes from 'prop-types'
-import history from './history'
-import {Main, Login, Signup, } from './components'
-import {me} from './store'
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = require("react");
+const react_1 = require("react");
+const react_redux_1 = require("react-redux");
+const react_router_1 = require("react-router");
+const react_router_dom_1 = require("react-router-dom");
+const history_1 = require("./history");
+const components_1 = require("./components");
+const store_1 = require("./store");
 /**
  * COMPONENT
  */
-class Routes extends Component {
-  componentDidMount () {
-    this.props.loadInitialData()
-  }
-
-  render () {
-    const {isLoggedIn} = this.props
-
-    return (
-      <Router history={history}>
-        <Main>
-          <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            {
-              isLoggedIn &&
-                <Switch>
-                  <Route path="/home" component={Home} />
-                </Switch>
-            }
-            <Route component={Login} />
-          </Switch>
-        </Main>
-      </Router>
-    )
-  }
-}
-
-const mapState = (state) => {
-  return {
-    isLoggedIn: !!state.user.id
-  }
-}
-
-const mapDispatch = (dispatch) => {
-  return {
-    loadInitialData () {
-      dispatch(me())
+class Routes extends react_1.Component {
+    componentDidMount() {
+        this.props.loadInitialData();
     }
-  }
+    render() {
+        const { isLoggedIn } = this.props;
+        return (React.createElement(react_router_1.Router, { history: history_1.default },
+            React.createElement(components_1.Main, null,
+                React.createElement(react_router_dom_1.Switch, null,
+                    React.createElement(react_router_dom_1.Route, { path: "/login", component: components_1.Login }),
+                    React.createElement(react_router_dom_1.Route, { path: "/signup", component: components_1.Signup }),
+                    isLoggedIn &&
+                        React.createElement(react_router_dom_1.Switch, null,
+                            React.createElement(react_router_dom_1.Route, { path: "/home", component: components_1.Home })),
+                    React.createElement(react_router_dom_1.Route, { component: components_1.Login })))));
+    }
 }
-
-export default connect(mapState, mapDispatch)(Routes)
-
-Routes.propTypes = {
-  loadInitialData: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
-}
+const mapState = (state) => {
+    return {
+        isLoggedIn: !!state.user.id
+    };
+};
+const mapDispatch = (dispatch) => {
+    return {
+        loadInitialData() {
+            dispatch(store_1.me());
+        }
+    };
+};
+exports.default = react_redux_1.connect(mapState, mapDispatch)(Routes);
+//# sourceMappingURL=routes.js.map
