@@ -1,9 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// #region ----------------------------- Imports --------------------------------------
 const React = require("react");
 const react_redux_1 = require("react-redux");
 const react_router_dom_1 = require("react-router-dom");
-const store_1 = require("../store");
+const store_1 = require("../../store");
+// import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+// import {Store, Dispatch, Action} from 'redux';
+// #endregion
+// #region ---------------------------- Component -------------------------------------
 const Main = (props) => {
     const { children, handleClick, isLoggedIn } = props;
     return (React.createElement("div", null,
@@ -18,6 +23,8 @@ const Main = (props) => {
         React.createElement("hr", null),
         children));
 };
+// #endregion
+// #region -------------------------- Redux Connect -----------------------------------
 const mapState = (state) => {
     return {
         isLoggedIn: !!state.user.id
@@ -31,4 +38,5 @@ const mapDispatch = (dispatch) => {
     };
 };
 exports.default = react_router_dom_1.withRouter(react_redux_1.connect(mapState, mapDispatch)(Main));
+// #endregion
 //# sourceMappingURL=main.js.map

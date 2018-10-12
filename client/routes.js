@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// #region ----------------------------- Imports --------------------------------------
 const React = require("react");
 const react_1 = require("react");
 const react_redux_1 = require("react-redux");
@@ -8,9 +9,8 @@ const react_router_dom_1 = require("react-router-dom");
 const history_1 = require("./history");
 const components_1 = require("./components");
 const store_1 = require("./store");
-/**
- * COMPONENT
- */
+// #endregion
+// #region ---------------------------- Component -------------------------------------
 class Routes extends react_1.Component {
     componentDidMount() {
         this.props.loadInitialData();
@@ -28,6 +28,8 @@ class Routes extends react_1.Component {
                     React.createElement(react_router_dom_1.Route, { component: components_1.Login })))));
     }
 }
+// #endregion
+// #region -------------------------- Redux Connect -----------------------------------
 const mapState = (state) => {
     return {
         isLoggedIn: !!state.user.id
@@ -41,4 +43,5 @@ const mapDispatch = (dispatch) => {
     };
 };
 exports.default = react_redux_1.connect(mapState, mapDispatch)(Routes);
+// #endregion
 //# sourceMappingURL=routes.js.map

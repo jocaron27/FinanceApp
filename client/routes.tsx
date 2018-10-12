@@ -1,3 +1,4 @@
+// #region ----------------------------- Imports --------------------------------------
 import * as React from 'react';
 import {Component} from 'react';
 import {connect} from 'react-redux';
@@ -6,11 +7,11 @@ import {Route, Switch} from 'react-router-dom';
 import history from './history';
 import { Main, Login, Signup, Home } from './components';
 import {me} from './store';
+import {App} from './app';
+// #endregion
 
-/**
- * COMPONENT
- */
-class Routes extends Component<RoutesProps, {}> {
+// #region ---------------------------- Component -------------------------------------
+class Routes extends Component<RoutesProps, App.State> {
 
   componentDidMount() {
     this.props.loadInitialData();
@@ -38,26 +39,10 @@ class Routes extends Component<RoutesProps, {}> {
     )
   }
 }
+// #endregion
 
-type State = {
-  user: User;
-}
-
-type User = {
-  id: string;
-}
-
-type RoutesProps = RoutesState & RoutesDispatch;
-
-type RoutesState = {
-  isLoggedIn: boolean;
-}
-
-type RoutesDispatch = {
-  loadInitialData: () => void;
-}
-
-const mapState = (state: State): RoutesState => {
+// #region -------------------------- Redux Connect -----------------------------------
+const mapState = (state: App.State): RoutesState => {
   return {
     isLoggedIn: !!state.user.id
   }
@@ -72,3 +57,16 @@ const mapDispatch = (dispatch): RoutesDispatch => {
 }
 
 export default connect(mapState, mapDispatch)(Routes);
+// #endregion
+
+// #region ------------------------------ Types ---------------------------------------
+type RoutesProps = RoutesState & RoutesDispatch;
+
+type RoutesState = {
+  isLoggedIn: boolean;
+}
+
+type RoutesDispatch = {
+  loadInitialData: () => void;
+}
+// #endregion
