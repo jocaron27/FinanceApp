@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const react_redux_1 = require("react-redux");
 const react_router_dom_1 = require("react-router-dom");
-const store_1 = require("../store");
+const store_1 = require("../../store");
 const Main = (props) => {
     const { children, handleClick, isLoggedIn } = props;
     return (React.createElement("div", null,

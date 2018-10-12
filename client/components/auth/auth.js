@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const react_redux_1 = require("react-redux");
-const store_1 = require("../store");
+const store_1 = require("../../store");
 const Auth = (props) => {
     const { name, displayName, handleSubmit, error } = props;
     return (React.createElement("div", null,
