@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// #region ----------------------------- Imports --------------------------------------
 const React = require("react");
 const react_redux_1 = require("react-redux");
 const store_1 = require("../../store");
+// #endregion
+// #region ---------------------------- Component -------------------------------------
 const Auth = (props) => {
     const { name, displayName, handleSubmit, error } = props;
     return (React.createElement("div", null,
@@ -25,6 +28,8 @@ const Auth = (props) => {
             displayName,
             " with Google")));
 };
+// #endregion
+// #region -------------------------- Redux Connect -----------------------------------
 const mapLogin = (state) => {
     return {
         name: 'login',
@@ -52,4 +57,5 @@ const mapDispatch = (dispatch) => {
 };
 exports.Login = react_redux_1.connect(mapLogin, mapDispatch)(Auth);
 exports.Signup = react_redux_1.connect(mapSignup, mapDispatch)(Auth);
+// #endregion
 //# sourceMappingURL=auth.js.map

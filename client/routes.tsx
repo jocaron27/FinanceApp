@@ -1,3 +1,4 @@
+// #region ----------------------------- Imports --------------------------------------
 import * as React from 'react';
 import {Component} from 'react';
 import {connect} from 'react-redux';
@@ -6,11 +7,11 @@ import {Route, Switch} from 'react-router-dom';
 import history from './history';
 import { Main, Login, Signup, Home } from './components';
 import {me} from './store';
+import {App} from './app';
+// #endregion
 
-/**
- * COMPONENT
- */
-class Routes extends Component<RoutesProps, State> {
+// #region ---------------------------- Component -------------------------------------
+class Routes extends Component<RoutesProps, App.State> {
 
   componentDidMount() {
     this.props.loadInitialData();
@@ -38,8 +39,10 @@ class Routes extends Component<RoutesProps, State> {
     )
   }
 }
+// #endregion
 
-const mapState = (state: State): RoutesState => {
+// #region -------------------------- Redux Connect -----------------------------------
+const mapState = (state: App.State): RoutesState => {
   return {
     isLoggedIn: !!state.user.id
   }
@@ -53,14 +56,10 @@ const mapDispatch = (dispatch): RoutesDispatch => {
   }
 }
 
-type State = {
-  user: User;
-}
+export default connect(mapState, mapDispatch)(Routes);
+// #endregion
 
-type User = {
-  id: string;
-}
-
+// #region ------------------------------ Types ---------------------------------------
 type RoutesProps = RoutesState & RoutesDispatch;
 
 type RoutesState = {
@@ -70,5 +69,4 @@ type RoutesState = {
 type RoutesDispatch = {
   loadInitialData: () => void;
 }
-
-export default connect(mapState, mapDispatch)(Routes);
+// #endregion

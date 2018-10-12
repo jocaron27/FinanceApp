@@ -1,8 +1,14 @@
+// #region ----------------------------- Imports --------------------------------------
 import * as React from 'react';
 import {connect} from 'react-redux';
+import {Dispatch} from 'redux';
 import {auth} from '../../store';
+import {App} from '../../app';
+// #endregion
 
-const Auth = (props: AuthProps) => {
+// #region ---------------------------- Component -------------------------------------
+
+const Auth: React.StatelessComponent<AuthProps> = (props: AuthProps) => {
   const {name, displayName, handleSubmit, error} = props;
 
   return (
@@ -25,8 +31,10 @@ const Auth = (props: AuthProps) => {
     </div>
   )
 }
+// #endregion
 
-const mapLogin = (state: State): AuthState => {
+// #region -------------------------- Redux Connect -----------------------------------
+const mapLogin = (state: App.State): AuthState => {
   return {
     name: 'login',
     displayName: 'Login',
@@ -34,7 +42,7 @@ const mapLogin = (state: State): AuthState => {
   };
 };
 
-const mapSignup = (state: State): AuthState => {
+const mapSignup = (state: App.State): AuthState => {
   return {
     name: 'signup',
     displayName: 'Sign Up',
@@ -42,7 +50,7 @@ const mapSignup = (state: State): AuthState => {
   };
 };
 
-const mapDispatch = (dispatch): AuthDispatch => {
+const mapDispatch = (dispatch): AuthDispatch => { // TODO: resolve Dispatch arg type
   return {
     handleSubmit (evt) {
       evt.preventDefault();
@@ -54,32 +62,20 @@ const mapDispatch = (dispatch): AuthDispatch => {
   };
 };
 
-type User = {
-  id: string;
-  error?: Error;
-};
+export const Login = connect(mapLogin, mapDispatch)(Auth);
+export const Signup = connect(mapSignup, mapDispatch)(Auth);
+// #endregion
 
-type Error = {
-  response: {
-    data: string;
-  }
-}
-
-type State = {
-  user: User;
-};
-
-type AuthState = {
+// #region ------------------------------ Types ---------------------------------------
+export type AuthState = {
   name: string;
   displayName: string;
-  error: Error;
+  error: App.Error;
 }
 
-type AuthDispatch = {
+export type AuthDispatch = {
   handleSubmit: (evt: any) => void;
 }
 
-type AuthProps = AuthState & AuthDispatch;
-
-export const Login = connect(mapLogin, mapDispatch)(Auth);
-export const Signup = connect(mapSignup, mapDispatch)(Auth);
+export type AuthProps = AuthState & AuthDispatch;
+// #endregion

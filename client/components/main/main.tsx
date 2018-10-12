@@ -1,10 +1,16 @@
+// #region ----------------------------- Imports --------------------------------------
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import {logout} from '../../store';
+import {App} from '../../app';
+// import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+// import {Store, Dispatch, Action} from 'redux';
 
-const Main = (props) => {
+// #endregion
+
+// #region ---------------------------- Component -------------------------------------
+const Main: React.StatelessComponent<MainProps> = (props: MainProps) => {
   const {children, handleClick, isLoggedIn} = props
 
   return (
@@ -28,19 +34,35 @@ const Main = (props) => {
     </div>
   )
 }
+// #endregion
 
-const mapState = (state) => {
+// #region -------------------------- Redux Connect -----------------------------------
+const mapState = (state: App.State): MainState => {
   return {
     isLoggedIn: !!state.user.id
   }
 }
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = (dispatch): MainDispatch => {
   return {
-    handleClick () {
-      dispatch(logout())
+    handleClick() {
+      dispatch(logout());
     }
   }
 }
 
 export default withRouter(connect(mapState, mapDispatch)(Main));
+// #endregion
+
+// #region ------------------------------ Types ---------------------------------------
+type MainProps = MainState & MainDispatch;
+
+type MainState = {
+  isLoggedIn: boolean;
+  children?: any;
+}
+
+type MainDispatch = {
+  handleClick: () => void;
+}
+// #endregion
