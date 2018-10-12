@@ -10,7 +10,7 @@ import {me} from './store';
 /**
  * COMPONENT
  */
-class Routes extends Component<RoutesProps, {}> {
+class Routes extends Component<RoutesProps, State> {
 
   componentDidMount() {
     this.props.loadInitialData();
@@ -39,6 +39,20 @@ class Routes extends Component<RoutesProps, {}> {
   }
 }
 
+const mapState = (state: State): RoutesState => {
+  return {
+    isLoggedIn: !!state.user.id
+  }
+}
+
+const mapDispatch = (dispatch): RoutesDispatch => {
+  return {
+    loadInitialData () {
+      dispatch(me())
+    }
+  }
+}
+
 type State = {
   user: User;
 }
@@ -55,20 +69,6 @@ type RoutesState = {
 
 type RoutesDispatch = {
   loadInitialData: () => void;
-}
-
-const mapState = (state: State): RoutesState => {
-  return {
-    isLoggedIn: !!state.user.id
-  }
-}
-
-const mapDispatch = (dispatch): RoutesDispatch => {
-  return {
-    loadInitialData () {
-      dispatch(me())
-    }
-  }
 }
 
 export default connect(mapState, mapDispatch)(Routes);
