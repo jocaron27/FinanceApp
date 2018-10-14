@@ -4,8 +4,6 @@ import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import {logout} from '../../store';
 import {App} from '../../app';
-// import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-// import {Store, Dispatch, Action} from 'redux';
 
 // #endregion
 
