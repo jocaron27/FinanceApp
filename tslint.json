@@ -1,5 +1,6 @@
 {
     "rules": {
-        "semicolon": [true, "always"]
+        "semicolon": [true, "always"],
+        "quotemark": [true, "single"]
     }
 }
