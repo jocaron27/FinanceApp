@@ -1,5 +1,5 @@
-const LiveReloadPlugin = require('webpack-livereload-plugin')
-const isDev = process.env.NODE_ENV === 'development'
+const LiveReloadPlugin = require('webpack-livereload-plugin');
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: './client/index.tsx',
@@ -34,5 +34,18 @@ module.exports = {
       }
     ]
   },
-  plugins: isDev ? [new LiveReloadPlugin({appendScriptTag: true})] : []
-}
+  plugins: [
+      // Stage 2
+      ['@babel/plugin-proposal-decorators', { 'legacy': true }],
+      '@babel/plugin-proposal-function-sent',
+      '@babel/plugin-proposal-export-namespace-from',
+      '@babel/plugin-proposal-numeric-separator',
+      '@babel/plugin-proposal-throw-expressions',
+  
+      // Stage 3
+      '@babel/plugin-syntax-dynamic-import',
+      '@babel/plugin-syntax-import-meta',
+      ['@babel/plugin-proposal-class-properties', { 'loose': false }],
+      '@babel/plugin-proposal-json-strings'
+    ]
+};

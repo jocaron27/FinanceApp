@@ -13,11 +13,11 @@ const Main = (props) => {
         React.createElement("h1", null, "Hello World"),
         React.createElement("nav", null, isLoggedIn
             ? React.createElement("div", null,
-                React.createElement(react_router_dom_1.Link, { to: "/home" }, "Home"),
-                React.createElement("a", { href: "#", onClick: handleClick }, "Logout"))
+                React.createElement(react_router_dom_1.Link, { to: '/home' }, "Home"),
+                React.createElement("a", { href: '#', onClick: handleClick }, "Logout"))
             : React.createElement("div", null,
-                React.createElement(react_router_dom_1.Link, { to: "/login" }, "Login"),
-                React.createElement(react_router_dom_1.Link, { to: "/signup" }, "Sign Up"))),
+                React.createElement(react_router_dom_1.Link, { to: '/login' }, "Login"),
+                React.createElement(react_router_dom_1.Link, { to: '/signup' }, "Sign Up"))),
         React.createElement("hr", null),
         children));
 };
