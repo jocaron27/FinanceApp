@@ -4,14 +4,12 @@ import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import {logout} from '../../store';
 import {App} from '../../app';
-// import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-// import {Store, Dispatch, Action} from 'redux';
 
 // #endregion
 
 // #region ---------------------------- Component -------------------------------------
 const Main: React.StatelessComponent<MainProps> = (props: MainProps) => {
-  const {children, handleClick, isLoggedIn} = props
+  const {children, handleClick, isLoggedIn} = props;
 
   return (
     <div>
@@ -32,24 +30,24 @@ const Main: React.StatelessComponent<MainProps> = (props: MainProps) => {
       <hr />
       {children}
     </div>
-  )
-}
+  );
+};
 // #endregion
 
 // #region -------------------------- Redux Connect -----------------------------------
 const mapState = (state: App.State): MainState => {
   return {
     isLoggedIn: !!state.user.id
-  }
-}
+  };
+};
 
 const mapDispatch = (dispatch): MainDispatch => {
   return {
     handleClick() {
       dispatch(logout());
     }
-  }
-}
+  };
+};
 
 export default withRouter(connect(mapState, mapDispatch)(Main));
 // #endregion
@@ -60,9 +58,9 @@ type MainProps = MainState & MainDispatch;
 type MainState = {
   isLoggedIn: boolean;
   children?: any;
-}
+};
 
 type MainDispatch = {
   handleClick: () => void;
-}
+};
 // #endregion

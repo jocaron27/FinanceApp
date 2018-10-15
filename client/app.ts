@@ -18,5 +18,5 @@ export namespace App {
         response: {
           data: string;
         }
-    }
+    };
 }

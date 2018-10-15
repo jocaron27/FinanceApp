@@ -1,7 +1,7 @@
-const User = require('./user')
+const User = require('./user');
 
 // TODO: Put model associations here
 
 module.exports = {
   User
-}
+};

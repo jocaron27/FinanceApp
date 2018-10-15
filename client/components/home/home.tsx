@@ -13,15 +13,15 @@ export const Home: React.StatelessComponent<HomeProps> = (props: HomeProps) => {
       <h3>Welcome, {email}</h3>
     </div>
   );
-}
+};
 // #endregion
 
 // #region -------------------------- Redux Connect -----------------------------------
 const mapState = (state: App.State): HomeState => {
   return {
     email: state.user.email
-  }
-}
+  };
+};
 
 export default connect(mapState)(Home);
 // #endregion
@@ -31,5 +31,5 @@ type HomeProps = HomeState;
 
 type HomeState = {
   email: string;
-}
+};
 // #endregion
