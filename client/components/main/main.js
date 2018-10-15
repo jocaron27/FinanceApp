@@ -5,8 +5,6 @@ const React = require("react");
 const react_redux_1 = require("react-redux");
 const react_router_dom_1 = require("react-router-dom");
 const store_1 = require("../../store");
-// import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-// import {Store, Dispatch, Action} from 'redux';
 // #endregion
 // #region ---------------------------- Component -------------------------------------
 const Main = (props) => {
