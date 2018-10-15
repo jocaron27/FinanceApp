@@ -18,12 +18,12 @@ const Main: React.StatelessComponent<MainProps> = (props: MainProps) => {
         {
           isLoggedIn
             ? <div>
-              <Link to="/home">Home</Link>
-              <a href="#" onClick={handleClick}>Logout</a>
+              <Link to='/home'>Home</Link>
+              <a href='#' onClick={handleClick}>Logout</a>
             </div>
             : <div>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
+              <Link to='/login'>Login</Link>
+              <Link to='/signup'>Sign Up</Link>
             </div>
         }
       </nav>

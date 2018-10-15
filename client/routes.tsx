@@ -24,12 +24,12 @@ class Routes extends Component<RoutesProps, App.State> {
       <Router history={history}>
         <Main>
           <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
             {
               isLoggedIn &&
                 <Switch>
-                  <Route path="/home" component={Home} />
+                  <Route path='/home' component={Home} />
                 </Switch>
             }
             <Route component={Login} />
