@@ -20,11 +20,11 @@ class Routes extends react_1.Component {
         return (React.createElement(react_router_1.Router, { history: history_1.default },
             React.createElement(components_1.Main, null,
                 React.createElement(react_router_dom_1.Switch, null,
-                    React.createElement(react_router_dom_1.Route, { path: "/login", component: components_1.Login }),
-                    React.createElement(react_router_dom_1.Route, { path: "/signup", component: components_1.Signup }),
+                    React.createElement(react_router_dom_1.Route, { path: '/login', component: components_1.Login }),
+                    React.createElement(react_router_dom_1.Route, { path: '/signup', component: components_1.Signup }),
                     isLoggedIn &&
                         React.createElement(react_router_dom_1.Switch, null,
-                            React.createElement(react_router_dom_1.Route, { path: "/home", component: components_1.Home })),
+                            React.createElement(react_router_dom_1.Route, { path: '/home', component: components_1.Home })),
                     React.createElement(react_router_dom_1.Route, { component: components_1.Login })))));
     }
 }
