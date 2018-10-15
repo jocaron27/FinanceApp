@@ -36,7 +36,7 @@ class Routes extends Component<RoutesProps, App.State> {
           </Switch>
         </Main>
       </Router>
-    )
+    );
   }
 }
 // #endregion
@@ -45,16 +45,16 @@ class Routes extends Component<RoutesProps, App.State> {
 const mapState = (state: App.State): RoutesState => {
   return {
     isLoggedIn: !!state.user.id
-  }
-}
+  };
+};
 
 const mapDispatch = (dispatch): RoutesDispatch => {
   return {
     loadInitialData () {
-      dispatch(me())
+      dispatch(me());
     }
-  }
-}
+  };
+};
 
 export default connect(mapState, mapDispatch)(Routes);
 // #endregion
@@ -64,9 +64,9 @@ type RoutesProps = RoutesState & RoutesDispatch;
 
 type RoutesState = {
   isLoggedIn: boolean;
-}
+};
 
 type RoutesDispatch = {
   loadInitialData: () => void;
-}
+};
 // #endregion

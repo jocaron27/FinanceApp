@@ -29,8 +29,8 @@ const Auth: React.StatelessComponent<AuthProps> = (props: AuthProps) => {
       </form>
       <a href="/auth/google">{displayName} with Google</a>
     </div>
-  )
-}
+  );
+};
 // #endregion
 
 // #region -------------------------- Redux Connect -----------------------------------
@@ -71,11 +71,11 @@ export type AuthState = {
   name: string;
   displayName: string;
   error: App.Error;
-}
+};
 
 export type AuthDispatch = {
   handleSubmit: (evt: any) => void;
-}
+};
 
 export type AuthProps = AuthState & AuthDispatch;
 // #endregion
