@@ -61,12 +61,12 @@
     "webpack-livereload-plugin": "^2.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/polyfill": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/preset-react": "^7.0.0-beta.40",
-    "@babel/preset-stage-2": "^7.0.0-beta.40",
-    "@babel/register": "^7.0.0-beta.40",
+    "@babel/core": "7.0.0-beta.44",
+    "@babel/polyfill": "7.0.0-beta.44",
+    "@babel/preset-env": "7.0.0-beta.44",
+    "@babel/preset-react": "7.0.0-beta.44",
+    "@babel/preset-stage-2": "7.0.0-beta.44",
+    "@babel/register": "7.0.0-beta.44",
     "@types/react": "^16.4.16",
     "@types/react-dom": "^16.0.9",
     "@types/react-redux": "^6.0.9",
